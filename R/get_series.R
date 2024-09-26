@@ -66,9 +66,9 @@ get_series <- function(table_px, index, ...){
     colnames(data_mts) <- c("level", "M-on-M", "Y-on-Y", "M-diff", "Y-diff")
   }
 
-  if(methods::is(index == "numeric")){
+  if(methods::is(index,"numeric")){
     desc <- (unlist(strsplit(colnames(statbanker::px2ts(table_px))[index], '_')))
-  }else if(methods::is(index == "character")){
+  }else if(methods::is(index,"character")){
     id   <- which(colnames(statbanker::px2ts(table_px))==index)
     desc <- (unlist(strsplit(colnames(statbanker::px2ts(table_px))[id], '_')))
   }
@@ -93,9 +93,9 @@ get_series <- function(table_px, index, ...){
                     data         = data_mts)
 
   # Plotting
-  if(methods::is(index == "numeric")){
+  if(methods::is(index,"numeric")){
     chart_title <- paste0(sub("_", "\n", colnames(statbanker::px2ts(table_px))[index]))
-  }else if(methods::is(index == "character")){
+  }else if(methods::is(index,"character")){
     id <- which(colnames(statbanker::px2ts(table_px)) == index)
     chart_title <- paste0(sub("_", "\n", colnames(statbanker::px2ts(table_px))[id]))
   }

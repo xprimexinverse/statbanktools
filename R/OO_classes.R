@@ -11,8 +11,6 @@
 #' @slot start_date numeric.
 #' @slot end_date numeric.
 #' @slot raw_data ts.
-#' @slot growth_rates mts.
-#' @slot differences mts.
 #' @slot data mts.
 #'
 #' @return A series-object

@@ -14,7 +14,7 @@
 #' PCR_NEW <- create_series(PCR_SA@raw_data)
 create_series <- function(series_ts, ...){
 
-  if(frequency(series_ts) == 4){
+  if(stats::frequency(series_ts) == 4){
 
     # Compute the growth rates
     series_ts_gr <- cbind(compute_growth_rates(series_ts, 1),
@@ -26,7 +26,7 @@ create_series <- function(series_ts, ...){
                             compute_differences(series_ts, 4))
     #colnames(series_ts_diff) <- c("Q-diff", "Y-diff")
 
-  }else if(frequency(series_ts) == 1){
+  }else if(stats::frequency(series_ts) == 1){
 
     # Compute the growth rates
     series_ts_gr <- compute_growth_rates(series_ts, 1)
@@ -36,7 +36,7 @@ create_series <- function(series_ts, ...){
     series_ts_diff <- compute_differences(series_ts, 1)
     #colnames(series_ts_diff) <- c("Y-diff")
 
-  }else if(frequency(series_ts) == 12){
+  }else if(stats::frequency(series_ts) == 12){
 
     # Compute the growth rates
     series_ts_gr <- cbind(compute_growth_rates(series_ts, 1),
@@ -54,19 +54,19 @@ create_series <- function(series_ts, ...){
   data_mts <- cbind(series_ts,
                     series_ts_gr,
                     series_ts_diff)
-  if(frequency(series_ts) == 4){
+  if(stats::frequency(series_ts) == 4){
     colnames(data_mts) <- c("level", "Q-on-Q", "Y-on-Y", "Q-diff", "Y-diff")
-  }else if(frequency(series_ts) == 1){
+  }else if(stats::frequency(series_ts) == 1){
     colnames(data_mts) <- c("level", "Y-on-Y", "Y-diff")
-  }else if(frequency(series_ts) == 12){
+  }else if(stats::frequency(series_ts) == 12){
     colnames(data_mts) <- c("level", "M-on-M", "Y-on-Y", "M-diff", "Y-diff")
   }
 
   # Package together the data and metadata
   series_obj <- new("series-obj",
-                    frequency    = frequency(series_ts),
-                    start_date   = start(series_ts),
-                    end_date     = end(series_ts),
+                    frequency    = stats::frequency(series_ts),
+                    start_date   = stats::start(series_ts),
+                    end_date     = stats::end(series_ts),
                     raw_data     = series_ts,
                     #growth_rates = series_ts_gr,
                     #differences  = series_ts_diff,

@@ -65,9 +65,9 @@ get_series <- function(table_px, index, ...){
     colnames(data_mts) <- c("level", "M-on-M", "Y-on-Y", "M-diff", "Y-diff")
   }
 
-  if(class(index) == "numeric"){
+  if(is(index == "numeric")){
     desc <- (unlist(strsplit(colnames(px2ts(table_px))[index], '_')))
-  }else if(class(index) == "character"){
+  }else if(is(index == "character")){
     id   <- which(colnames(px2ts(table_px))==index)
     desc <- (unlist(strsplit(colnames(px2ts(table_px))[id], '_')))
   }
@@ -92,9 +92,9 @@ get_series <- function(table_px, index, ...){
                     data         = data_mts)
 
   # Plotting
-  if(class(index) == "numeric"){
+  if(is(index == "numeric")){
     chart_title <- paste0(sub("_", "\n", colnames(px2ts(table_px))[index]))
-  }else if(class(index) == "character"){
+  }else if(is(index == "character")){
     id <- which(colnames(px2ts(table_px)) == index)
     chart_title <- paste0(sub("_", "\n", colnames(px2ts(table_px))[id]))
   }

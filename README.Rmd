@@ -39,7 +39,7 @@ library(plotly)
 library(statbanktools)
 NAQ01 <- getStatBankData("NAQ01", type = "px")
 PCR_SA <- get_series(NAQ01, index = 2)
-head(PCR_SA@data,n=20)
+PCR_SA@data
 
 ```
 

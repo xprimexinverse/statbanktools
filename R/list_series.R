@@ -10,6 +10,6 @@
 #' NAQ01 <- getStatBankData("NAQ01", type = "px")
 #' list_series(NAQ01)
 list_series <- function(table_px){
-  series_list <- colnames(px2ts(table_px))
+  series_list <- colnames(statbanker::px2ts(table_px))
   return(series_list)
 }

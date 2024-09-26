@@ -54,31 +54,26 @@ NAQ01 <- getStatBankData("NAQ01", type = "px")
 #> LAST UPDATED =  20240905 11:00 
 #> FILE ADDRESS =  https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/NAQ01/PX/2013/
 PCR_SA <- get_series(NAQ01, index = 2)
-#> The following `from` values were not present in `x`: dat
-#> The following `from` values were not present in `x`: dat
-#> The following `from` values were not present in `x`: dat
+head(PCR_SA@data,n=20)
+#>       level       Q-on-Q    Y-on-Y Q-diff Y-diff
+#>  [1,] 11661           NA        NA     NA     NA
+#>  [2,] 11990  2.821370380        NA    329     NA
+#>  [3,] 12288  2.485404504        NA    298     NA
+#>  [4,] 12489  1.635742188        NA    201     NA
+#>  [5,] 12656  1.337176716  8.532716    167    995
+#>  [6,] 12805  1.177307206  6.797331    149    815
+#>  [7,] 13048  1.897696212  6.184896    243    760
+#>  [8,] 13328  2.145922747  6.717912    280    839
+#>  [9,] 13425  0.727791116  6.076169     97    769
+#> [10,] 13695  2.011173184  6.950410    270    890
+#> [11,] 13963  1.956918583  7.012569    268    915
+#> [12,] 14564  4.304232615  9.273709    601   1236
+#> [13,] 14653  0.611095853  9.147114     89   1228
+#> [14,] 15030  2.572851976  9.748083    377   1335
+#> [15,] 15275  1.630073187  9.396262    245   1312
+#> [16,] 15463  1.230769231  6.172755    188    899
+#> [17,] 16052  3.809092673  9.547533    589   1399
+#> [18,] 16053  0.006229753  6.806387      1   1023
+#> [19,] 17023  6.042484271 11.443535    970   1748
+#> [20,] 17012 -0.064618457 10.017461    -11   1549
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.

@@ -5,13 +5,14 @@
 #' @param ... Other types of arguments.
 #'
 #' @return A series-object.
+#' @importFrom plotly %>%
 #' @export
 #'
 #' @examples
-#' library(statbanker)
-#' library(plotly)
-#' NAQ01 <- getStatBankData("NAQ01", type = "px")
-#' PCR_SA <- get_series(NAQ01, index = 2)
+#' #library(statbanker)
+#' #library(plotly)
+#' #NAQ01 <- getStatBankData("NAQ01", type = "px")
+#' #PCR_SA <- get_series(NAQ01, index = 2)
 get_series <- function(table_px, index, ...){
 
   # Extract the time-series
@@ -101,7 +102,7 @@ get_series <- function(table_px, index, ...){
 
   if(stats::frequency(series_ts)==4){
     #fig1 <- plot_ly(as.data.frame(series_obj@data), x = seq(start(series_obj@data)[1],end(series_obj@data)[1],0.25), y = series_obj@data[,"level"], type = 'scatter', mode = 'lines', name = paste0('Level', " (",table_px$UNITS$value,")"))
-    fig1 <- plotly::plot_ly(as.data.frame(series_obj@data), x = seq(from=start(series_obj@data)[1],by=0.25,length.out=length(series_obj@data[,1])), y = series_obj@data[,"level"], type = 'scatter', mode = 'lines', name = paste0('Level', " (",table_px$UNITS$value,")"))
+    fig1 <- plotly::plot_ly(as.data.frame(series_obj@data), x = seq(from=stats::start(series_obj@data)[1],by=0.25,length.out=length(series_obj@data[,1])), y = series_obj@data[,"level"], type = 'scatter', mode = 'lines', name = paste0('Level', " (",table_px$UNITS$value,")"))
   }
   if(stats::frequency(series_ts)==1){
     #fig1 <- plot_ly(as.data.frame(series_obj@data), x = seq(start(series_obj@data)[1],end(series_obj@data)[1],1), y = series_obj@data[,"level"], type = 'scatter', mode = 'lines', name = paste0('Level', " (",table_px$UNITS$value,")"))
@@ -113,21 +114,21 @@ get_series <- function(table_px, index, ...){
   }
 
   if(stats::frequency(series_ts)==4){
-    fig1 <- fig1 %>% add_trace(y = series_obj@data[,"Q-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('Q-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
+    fig1 <- fig1 %>% plotly::add_trace(y = series_obj@data[,"Q-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('Q-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
   }
   if(stats::frequency(series_ts)==12){
-    fig1 <- fig1 %>% add_trace(y = series_obj@data[,"M-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('M-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
+    fig1 <- fig1 %>% plotly::add_trace(y = series_obj@data[,"M-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('M-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
   }
 
-  fig1 <- fig1 %>% add_trace(y = series_obj@data[,"Y-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('Y-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
+  fig1 <- fig1 %>% plotly::add_trace(y = series_obj@data[,"Y-diff"], type = 'scatter', mode = 'lines+markers', name = paste0('Y-diff', " (",table_px$UNITS$value,")"), visible='legendonly')
   if(stats::frequency(series_ts)==4){
-    fig1 <- fig1 %>% add_trace(y = round(series_obj@data[,"Q-on-Q"],1), type = 'scatter', mode = 'lines+markers', name = 'Q-on-Q (%)', visible='legendonly')
+    fig1 <- fig1 %>% plotly::add_trace(y = round(series_obj@data[,"Q-on-Q"],1), type = 'scatter', mode = 'lines+markers', name = 'Q-on-Q (%)', visible='legendonly')
   }
   if(stats::frequency(series_ts)==12){
-    fig1 <- fig1 %>% add_trace(y = round(series_obj@data[,"M-on-M"],1), type = 'scatter', mode = 'lines+markers', name = 'M-on-M (%)', visible='legendonly')
+    fig1 <- fig1 %>% plotly::add_trace(y = round(series_obj@data[,"M-on-M"],1), type = 'scatter', mode = 'lines+markers', name = 'M-on-M (%)', visible='legendonly')
   }
 
-  fig1 <- fig1 %>% add_trace(y = round(series_obj@data[,"Y-on-Y"],1), type = 'scatter', mode = 'lines+markers', name = 'Y-on-Y (%)', visible='legendonly')
+  fig1 <- fig1 %>% plotly::add_trace(y = round(series_obj@data[,"Y-on-Y"],1), type = 'scatter', mode = 'lines+markers', name = 'Y-on-Y (%)', visible='legendonly')
   fig1 <- fig1 %>% graphics::layout(title = list(text = chart_title, xanchor = 'center', yanchor = 'top', font = list(family = "Times New Roman", size = 12, color = "black")))
   fig1 <- fig1 %>% graphics::layout(xaxis = list(tickformat = ",.", hoverformat = ",."))
   print(fig1)

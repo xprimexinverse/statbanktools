@@ -18,9 +18,9 @@ A series-object
 Create a series-obj
 }
 \examples{
-library(statbanker)
-library(plotly)
-NAQ01 <- getStatBankData("NAQ01", type = "px")
-PCR_SA <- get_series(NAQ01, index = 2)
-PCR_NEW <- create_series(PCR_SA@raw_data)
+#library(statbanker)
+#library(plotly)
+#NAQ01 <- getStatBankData("NAQ01", type = "px")
+#PCR_SA <- get_series(NAQ01, index = 2)
+#PCR_NEW <- create_series(PCR_SA@raw_data)
 }

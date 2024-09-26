@@ -20,8 +20,8 @@ A series-object.
 Get series from a CSO table
 }
 \examples{
-library(statbanker)
-library(plotly)
-NAQ01 <- getStatBankData("NAQ01", type = "px")
-PCR_SA <- get_series(NAQ01, index = 2)
+#library(statbanker)
+#library(plotly)
+#NAQ01 <- getStatBankData("NAQ01", type = "px")
+#PCR_SA <- get_series(NAQ01, index = 2)
 }

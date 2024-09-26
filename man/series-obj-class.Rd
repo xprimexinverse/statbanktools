@@ -35,10 +35,6 @@ Class definition for statbanktools series-object
 
 \item{\code{raw_data}}{ts.}
 
-\item{\code{growth_rates}}{mts.}
-
-\item{\code{differences}}{mts.}
-
 \item{\code{data}}{mts.}
 }}
 

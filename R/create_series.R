@@ -7,11 +7,11 @@
 #' @export
 #'
 #' @examples
-#' library(statbanker)
-#' library(plotly)
-#' NAQ01 <- getStatBankData("NAQ01", type = "px")
-#' PCR_SA <- get_series(NAQ01, index = 2)
-#' PCR_NEW <- create_series(PCR_SA@raw_data)
+#' #library(statbanker)
+#' #library(plotly)
+#' #NAQ01 <- getStatBankData("NAQ01", type = "px")
+#' #PCR_SA <- get_series(NAQ01, index = 2)
+#' #PCR_NEW <- create_series(PCR_SA@raw_data)
 create_series <- function(series_ts, ...){
 
   if(stats::frequency(series_ts) == 4){
@@ -63,7 +63,7 @@ create_series <- function(series_ts, ...){
   }
 
   # Package together the data and metadata
-  series_obj <- new("series-obj",
+  series_obj <- methods::new("series-obj",
                     frequency    = stats::frequency(series_ts),
                     start_date   = stats::start(series_ts),
                     end_date     = stats::end(series_ts),

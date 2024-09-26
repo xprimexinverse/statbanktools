@@ -18,8 +18,8 @@ A ts object.
 Calculate first differences of a series
 }
 \examples{
-#library(statbanker)
-#NAQ01 <- getStatBankData("NAQ01", type = "px")
+library(statbanker)
+NAQ01 <- getStatBankData("NAQ01", type = "px")
 PCR_SA <- extract_series(NAQ01, index = 2)
 compute_differences(PCR_SA, 1)
 }

@@ -7,8 +7,8 @@
 #' @export
 #'
 #' @examples
-#' #library(statbanker)
-#' #NAQ01 <- getStatBankData("NAQ01", type = "px")
+#' library(statbanker)
+#' NAQ01 <- getStatBankData("NAQ01", type = "px")
 #' PCR_SA <- extract_series(NAQ01, index = 2)
 #' compute_differences(PCR_SA, 1)
 compute_differences <- function(series_ts, lag){

@@ -1,0 +1,59 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# statbanktools
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The purpose of statbanktools is to provide a set of helper functions to accompany the statbanker package. statbanktools eases the task of extracting data from CSO tables and generates interactive charts that show the data in levels, differences, and growth rates. The series are stored as an S4 object, which contains the raw data, the transformations of the data, and metadata.
+
+## Installation
+
+You can install the development version of statbanktools from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("xprimexinverse/statbanktools")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(statbanker)
+library(plotly)
+library(statbanktools)
+NAQ01 <- getStatBankData("NAQ01", type = "px")
+PCR_SA <- get_series(NAQ01, index = 2)
+
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+summary(cars)
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+
+You can also embed plots, for example:
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

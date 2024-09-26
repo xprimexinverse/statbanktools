@@ -129,8 +129,8 @@ get_series <- function(table_px, index, ...){
   }
 
   fig1 <- fig1 %>% plotly::add_trace(y = round(series_obj@data[,"Y-on-Y"],1), type = 'scatter', mode = 'lines+markers', name = 'Y-on-Y (%)', visible='legendonly')
-  fig1 <- fig1 %>% graphics::layout(title = list(text = chart_title, xanchor = 'center', yanchor = 'top', font = list(family = "Times New Roman", size = 12, color = "black")))
-  fig1 <- fig1 %>% graphics::layout(xaxis = list(tickformat = ",.", hoverformat = ",."))
+  fig1 <- fig1 %>% plotly::layout(title = list(text = chart_title, xanchor = 'center', yanchor = 'top', font = list(family = "Times New Roman", size = 12, color = "black")))
+  fig1 <- fig1 %>% plotly::layout(xaxis = list(tickformat = ",.", hoverformat = ",."))
   print(fig1)
 
   return(series_obj)

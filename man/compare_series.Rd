@@ -16,11 +16,11 @@ An mts object.
 Compare series from a CSO table
 }
 \examples{
-library(statbanker)
-library(plotly)
-NAQ01 <- getStatBankData("NAQ01", type = "px")
-PCR_SA <- get_series(NAQ01,2)
-GCR_SA <- get_series(NAQ01,4)
-ITR_SA <- get_series(NAQ01,6)
-compare_series(PCR_SA@data[,"Y-on-Y"],ITR_SA@data[,"Y-on-Y"],GCR_SA@data[,"Y-on-Y"])
+#library(statbanker)
+#library(plotly)
+#NAQ01 <- getStatBankData("NAQ01", type = "px")
+#PCR_SA <- get_series(NAQ01,2)
+#GCR_SA <- get_series(NAQ01,4)
+#ITR_SA <- get_series(NAQ01,6)
+#compare_series(PCR_SA@data[,"Y-on-Y"],ITR_SA@data[,"Y-on-Y"],GCR_SA@data[,"Y-on-Y"])
 }
